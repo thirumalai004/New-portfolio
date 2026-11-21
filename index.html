@@ -72,22 +72,25 @@ h1{font-family:var(--head);font-weight:800;font-size:clamp(2.4rem,6vw,4rem);line
 
 /* project stack */
 .stackwrap{display:grid;grid-template-columns:1fr 1fr;gap:2.5rem;align-items:start}
-.stack{position:relative;height:400px}
-.pcard{display:flex;flex-direction:column;justify-content:flex-start;align-items:stretch;position:absolute;left:0;bottom:0;width:calc(100% - 140px);height:190px;text-align:left;font:inherit;color:inherit;background:#f6f8fb;border:2px solid var(--ink);border-radius:10px;padding:.55rem 1rem;cursor:pointer;transform:translate(calc(var(--d) * 34px),calc(var(--d) * -46px));transition:transform .3s ease,background .3s ease}
+.stack{position:relative;height:440px}
+.pcard{display:block;position:absolute;left:30px;bottom:0;width:calc(100% - 170px);height:190px;background:none;border:0;padding:0;cursor:pointer;font:inherit;color:inherit;text-align:left;transform:translate(calc(var(--d) * 34px),calc(var(--d) * -60px))}
+.pcard .lift{position:absolute;inset:0;display:block;transition:transform .25s ease}
+.pcard .plane{position:absolute;inset:0;background:#f6f8fb;border:2px solid var(--ink);border-radius:8px;transform:skewY(-5deg);transform-origin:left top;transition:background .25s ease,box-shadow .25s ease,border-color .25s ease}
+.pcard .txt{position:relative;display:block;padding:.55rem 1rem}
 .pcard h3{display:block;width:100%;font-family:var(--head);font-size:1.05rem;line-height:1.3;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.pcard[data-i="0"] h3{white-space:normal}
 .pcard .pn{font:600 .75rem var(--body);color:var(--teal);display:block}
 .pcard .pd{display:none;color:var(--muted);font-size:.88rem;margin-top:.4rem}
-.pcard.on{background:#fff;border-color:var(--teal);box-shadow:0 6px 0 var(--teal)}
-.pcard.on h3{white-space:normal;margin-top:.1rem}
-.pcard.on .pd{display:block}
-.pcard:hover:not(.on){background:#fff}
+.pcard.on .lift{transform:translateX(-26px)}
+.pcard.on .plane{background:#fff;border-color:var(--teal);box-shadow:0 6px 0 var(--teal)}
+.pcard[data-i="0"] .pd{display:block}
 .detail h3{font-family:var(--head);font-size:1.3rem;line-height:1.3}
 .detail .when{margin:.2rem 0 .8rem}
 .detail ul{padding-left:1.1rem;color:#33415c}
 .detail li{margin-bottom:.4rem}
 .detail li::marker{color:var(--amber)}
 .detail .tags{margin-top:.8rem}
-@media(prefers-reduced-motion:reduce){.pcard{transition:none}}
+@media(prefers-reduced-motion:reduce){.pcard .lift,.pcard .plane{transition:none}}
 /* sections */
 section{padding:3rem 0;border-top:1px solid var(--line)}
 h2{font-family:var(--head);font-weight:700;font-size:1.9rem;letter-spacing:-.01em;margin-bottom:1.5rem}
@@ -122,9 +125,11 @@ footer a{color:#fff}
 @media(max-width:760px){
   .stackwrap{grid-template-columns:1fr;gap:1.5rem}
   .stack{height:auto;display:flex;flex-direction:column;gap:.5rem}
-  .pcard{position:relative;width:100%;height:auto;transform:none;padding:.7rem 1rem}
-  .pcard h3{white-space:normal}
-  .pcard.on{box-shadow:none}
+  .pcard{position:relative;left:0;width:100%;height:auto;transform:none}
+  .pcard .lift{position:relative}
+  .pcard.on .lift{transform:none}
+  .pcard .plane{transform:none}
+  .pcard h3,.pcard[data-i="0"] h3{white-space:normal}
 
   html{font-size:14px}
   .wrap{padding:0 1rem}
@@ -243,11 +248,11 @@ footer a{color:#fff}
     <h2>Projects</h2>
     <div class="stackwrap">
       <div class="stack" id="stack">
-      <button class="pcard on" style="--d:0" data-i="0" aria-pressed="true" aria-controls="det0"><span class="pn">01</span><h3>Automated CI/CD pipeline for a real-time chat application</h3><span class="pd">Sep 2026 – Oct 2026</span></button>
-      <button class="pcard" style="--d:1" data-i="1" aria-pressed="false" aria-controls="det1"><span class="pn">02</span><h3>AWS CloudWatch dashboard for EC2 monitoring</h3><span class="pd">Jul 2026 – Aug 2026</span></button>
-      <button class="pcard" style="--d:2" data-i="2" aria-pressed="false" aria-controls="det2"><span class="pn">03</span><h3>AWS S3 provisioning with Terraform and GitHub Actions</h3><span class="pd">May 2026 – Jun 2026</span></button>
-      <button class="pcard" style="--d:3" data-i="3" aria-pressed="false" aria-controls="det3"><span class="pn">04</span><h3>CI/CD pipeline for a Node.js application on AWS ECS</h3><span class="pd">Apr 2026 – May 2026</span></button>
-      <button class="pcard" style="--d:4" data-i="4" aria-pressed="false" aria-controls="det4"><span class="pn">05</span><h3>AI-based smart helmet system with eye tracking</h3><span class="pd">Jan 2026 – Apr 2026</span></button>
+        <button class="pcard on" style="--d:0" data-i="0" aria-pressed="true" aria-controls="det0"><span class="lift"><span class="plane"></span><span class="txt"><span class="pn">01</span><h3>Automated CI/CD pipeline for a real-time chat application</h3><span class="pd">Sep 2026 – Oct 2026</span></span></span></button>
+        <button class="pcard" style="--d:1" data-i="1" aria-pressed="false" aria-controls="det1"><span class="lift"><span class="plane"></span><span class="txt"><span class="pn">02</span><h3>AWS CloudWatch dashboard for EC2 monitoring</h3><span class="pd">Jul 2026 – Aug 2026</span></span></span></button>
+        <button class="pcard" style="--d:2" data-i="2" aria-pressed="false" aria-controls="det2"><span class="lift"><span class="plane"></span><span class="txt"><span class="pn">03</span><h3>AWS S3 provisioning with Terraform and GitHub Actions</h3><span class="pd">May 2026 – Jun 2026</span></span></span></button>
+        <button class="pcard" style="--d:3" data-i="3" aria-pressed="false" aria-controls="det3"><span class="lift"><span class="plane"></span><span class="txt"><span class="pn">04</span><h3>CI/CD pipeline for a Node.js application on AWS ECS</h3><span class="pd">Apr 2026 – May 2026</span></span></span></button>
+        <button class="pcard" style="--d:4" data-i="4" aria-pressed="false" aria-controls="det4"><span class="lift"><span class="plane"></span><span class="txt"><span class="pn">05</span><h3>AI-based smart helmet system with eye tracking</h3><span class="pd">Jan 2026 – Apr 2026</span></span></span></button>
       </div>
       <div class="details" aria-live="polite">
       <div class="detail" id="det0"><h3>Automated CI/CD pipeline for a real-time chat application</h3><div class="when">Sep 2026 – Oct 2026</div><ul><li>Built a Jenkins pipeline that builds, containerizes and deploys the chat app to AWS EC2 on every commit.</li><li>Used GitHub Webhooks to trigger jobs instantly on push, removing manual deployment steps and shortening release cycles.</li><li>Containerized the app with Docker and automated image build and deployment, so environments stay consistent from build to production.</li></ul><div class="tags"><span>Jenkins</span><span>Docker</span><span>AWS EC2</span><span>GitHub Webhooks</span></div></div>
@@ -303,15 +308,12 @@ footer a{color:#fff}
 </footer>
 
 <script>
-// Project stack: click a card to bring it to the front and show its details.
+// Project stack: hover (or tap) a card to slide it out and show its details.
 (function(){
   var cards=[].slice.call(document.querySelectorAll('.pcard')),
       dets=[].slice.call(document.querySelectorAll('.detail')),n=cards.length;
   function show(a){
     cards.forEach(function(c,i){
-      var d=(i-a+n)%n;
-      c.style.setProperty('--d',d);
-      c.style.zIndex=n-d;
       c.classList.toggle('on',i===a);
       c.setAttribute('aria-pressed',i===a?'true':'false');
       dets[i].hidden=i!==a;
@@ -319,7 +321,7 @@ footer a{color:#fff}
   }
   cards.forEach(function(c,i){
     c.style.zIndex=n-i;
-    c.addEventListener('click',function(){show(i);});
+    ['mouseenter','focus','click'].forEach(function(ev){c.addEventListener(ev,function(){show(i);});});
   });
 })();
 </script>
