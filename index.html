@@ -42,6 +42,7 @@ h1{font-family:var(--head);font-weight:800;font-size:clamp(2.4rem,6vw,4rem);line
 .btn.main:hover{background:var(--teal);border-color:var(--teal)}
 .btn.alt{color:var(--ink)}
 .btn.alt:hover{background:var(--ink);color:#fff}
+.hero .wrap + .wrap{display:block}
 .photo{justify-self:end;width:100%;max-width:320px;aspect-ratio:4/5;object-fit:cover;object-position:top;border-radius:10px;border:6px solid #fff;box-shadow:0 0 0 1px var(--line)}
 
 /* pipeline strip: the one animated moment */
@@ -87,11 +88,30 @@ footer a{color:#fff}
 .copy{margin-top:2rem;font-size:.85rem;color:#7d8cab}
 
 @media(max-width:760px){
-  nav ul{gap:.8rem;font-size:.82rem}
-  .hero .wrap{grid-template-columns:1fr}
-  .photo{justify-self:start;max-width:220px;order:-1}
-  .skills,.row,.two{grid-template-columns:1fr;gap:.4rem}
-  .two{gap:2rem}
+  html{font-size:14px}
+  .wrap{padding:0 1rem}
+  nav .wrap{height:48px;flex-direction:row}
+  nav b{font-size:.9rem}
+  nav ul{gap:.6rem;font-size:.75rem}
+  .hero{padding:1.75rem 0 1.5rem}
+  .hero .wrap{grid-template-columns:1.6fr 1fr;gap:1rem;align-items:start}
+  .hero .wrap + .wrap{display:block}
+  h1{font-size:1.9rem}
+  .role{font-size:.95rem;margin:.5rem 0 .7rem}
+  .lead{font-size:.82rem;line-height:1.55}
+  .photo{justify-self:end;width:100%;max-width:none;height:auto;aspect-ratio:4/5;border-radius:10px;border-width:3px;order:0}
+  .btns{gap:.5rem;margin-top:1rem}
+  .btn{padding:.5rem .7rem;font-size:.8rem}
+  .pipe{margin-top:1.5rem;padding:.9rem}
+  .stage{font-size:.8rem;padding:.35rem .65rem}
+  .skills{grid-template-columns:105px 1fr;gap:.8rem 1rem}
+  .skills dt{font-size:.85rem}
+  .chips span{font-size:.75rem;padding:.1rem .45rem}
+  .row{grid-template-columns:90px 1fr;gap:1rem}
+  .when{font-size:.75rem}
+  .row h3{font-size:1rem}
+  .two{grid-template-columns:1fr 1fr;gap:1.25rem;font-size:.85rem}
+  h2{font-size:1.5rem}
 }
 @media(prefers-reduced-motion:reduce){.stage{transition:none}}
 </style>
