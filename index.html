@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Thirumalai Selladurai – Cloud & DevOps Engineer</title>
+<meta name="description" content="Portfolio of Thirumalai Selladurai, Cloud and DevOps engineer skilled in AWS, Docker, Jenkins, Terraform, Kubernetes and GitHub Actions.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700;800&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#eef2f6; --card:#ffffff; --ink:#14213d; --muted:#53627a;
+  --line:#d3dbe6; --teal:#0f766e; --amber:#e8a317;
+  --head:'Bricolage Grotesque','Segoe UI',Arial,sans-serif;
+  --body:'IBM Plex Sans','Segoe UI',Arial,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--paper);color:var(--ink);font:400 1rem/1.65 var(--body)}
+a{color:var(--teal)}
+a:focus-visible,button:focus-visible{outline:3px solid var(--amber);outline-offset:3px}
+.wrap{max-width:1000px;margin:0 auto;padding:0 1.25rem}
+
+/* nav */
+nav{position:sticky;top:0;z-index:5;background:rgba(238,242,246,.92);backdrop-filter:blur(6px);border-bottom:1px solid var(--line)}
+nav .wrap{display:flex;justify-content:space-between;align-items:center;height:56px}
+nav b{font-family:var(--head);font-size:1.05rem}
+nav ul{display:flex;gap:1.25rem;list-style:none;font-size:.92rem}
+nav a{color:var(--muted);text-decoration:none}
+nav a:hover{color:var(--teal)}
+
+/* hero */
+.hero{padding:4rem 0 3rem}
+.hero .wrap{display:grid;grid-template-columns:1.5fr 1fr;gap:3rem;align-items:center}
+h1{font-family:var(--head);font-weight:800;font-size:clamp(2.4rem,6vw,4rem);line-height:1.05;letter-spacing:-.02em}
+.role{font-family:var(--head);font-weight:500;font-size:1.35rem;color:var(--teal);margin:.75rem 0 1.1rem}
+.lead{color:var(--muted);max-width:56ch}
+.btns{display:flex;flex-wrap:wrap;gap:.75rem;margin-top:1.6rem}
+.btn{display:inline-block;padding:.7rem 1.2rem;border-radius:6px;font-weight:600;text-decoration:none;border:2px solid var(--ink)}
+.btn.main{background:var(--ink);color:#fff}
+.btn.main:hover{background:var(--teal);border-color:var(--teal)}
+.btn.alt{color:var(--ink)}
+.btn.alt:hover{background:var(--ink);color:#fff}
+.photo{justify-self:end;width:100%;max-width:320px;aspect-ratio:4/5;object-fit:cover;object-position:top;border-radius:10px;border:6px solid #fff;box-shadow:0 0 0 1px var(--line)}
+
+/* pipeline strip: the one animated moment */
+.pipe{margin-top:2.5rem;background:var(--ink);color:#fff;border-radius:10px;padding:1.1rem 1.25rem}
+.pipe p{font-size:.85rem;color:#a9b6cc;margin-bottom:.8rem}
+.stages{display:flex;flex-wrap:wrap;gap:.6rem}
+.stage{display:flex;align-items:center;gap:.5rem;padding:.45rem .85rem;border:1px solid #3a4a6b;border-radius:999px;font-weight:500;font-size:.95rem}
+.stage i{width:.7rem;height:.7rem;border-radius:50%;background:var(--amber);display:inline-block}
+.stage.ok i{background:#34d399}
+.stage.ok{border-color:#34d399}
+.stage .t{color:#34d399;display:none;font-style:normal}
+.stage.ok .t{display:inline}
+
+/* sections */
+section{padding:3rem 0;border-top:1px solid var(--line)}
+h2{font-family:var(--head);font-weight:700;font-size:1.9rem;letter-spacing:-.01em;margin-bottom:1.5rem}
+.skills{display:grid;grid-template-columns:200px 1fr;gap:.9rem 1.5rem}
+.skills dt{font-weight:600}
+.chips{display:flex;flex-wrap:wrap;gap:.4rem}
+.chips span{background:var(--card);border:1px solid var(--line);border-radius:5px;padding:.15rem .6rem;font-size:.88rem}
+
+.row{display:grid;grid-template-columns:150px 1fr;gap:1.5rem;padding:1.4rem 0;border-bottom:1px solid var(--line)}
+.row:last-child{border-bottom:0}
+.when{color:var(--muted);font-size:.9rem;font-weight:500}
+.row h3{font-family:var(--head);font-size:1.2rem;line-height:1.3;margin-bottom:.15rem}
+.org{color:var(--teal);font-weight:500;margin-bottom:.5rem}
+.row ul{padding-left:1.1rem;color:#33415c}
+.row li{margin-bottom:.35rem}
+.row li::marker{color:var(--amber)}
+.tags{display:flex;flex-wrap:wrap;gap:.4rem;margin-top:.7rem}
+.tags span{font-size:.8rem;font-weight:600;color:var(--teal);background:#dff1ee;border-radius:4px;padding:.1rem .5rem}
+
+.two{display:grid;grid-template-columns:1fr 1fr;gap:3rem}
+.two p{margin-bottom:.8rem}
+.two small{color:var(--muted)}
+
+footer{background:var(--ink);color:#fff;padding:3rem 0;margin-top:1rem}
+footer h2{color:#fff;margin-bottom:.75rem}
+footer p{color:#a9b6cc;margin-bottom:1.25rem}
+footer a{color:#fff}
+.contact{display:flex;flex-wrap:wrap;gap:.75rem 2rem}
+.contact a{font-weight:500}
+.copy{margin-top:2rem;font-size:.85rem;color:#7d8cab}
+
+@media(max-width:760px){
+  nav ul{gap:.8rem;font-size:.82rem}
+  .hero .wrap{grid-template-columns:1fr}
+  .photo{justify-self:start;max-width:220px;order:-1}
+  .skills,.row,.two{grid-template-columns:1fr;gap:.4rem}
+  .two{gap:2rem}
+}
+@media(prefers-reduced-motion:reduce){.stage{transition:none}}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <b>Thirumalai S.</b>
+    <ul>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <div>
+      <h1>Thirumalai Selladurai</h1>
+      <p class="role">Cloud &amp; DevOps Engineer | AWS</p>
+      <p class="lead">I build automated pipelines that take code from commit to production. My work covers AWS, Docker, Jenkins, Terraform, Kubernetes and GitHub Actions, and I have shipped five real-time projects across CI/CD, infrastructure as code, containers and monitoring.</p>
+      <div class="btns">
+        <a class="btn main" href="Thirumalai_Selladurai_Resume.docx" download>Download resume</a>
+        <a class="btn alt" href="#contact">Contact me</a>
+      </div>
+    </div>
+    <img class="photo" src="photo.jpg" alt="Portrait of Thirumalai Selladurai in a navy blazer">
+  </div>
+  <div class="wrap">
+    <div class="pipe" aria-label="Pipeline stages I work with">
+      <p>How I work: every change goes through the same pipeline</p>
+      <div class="stages" id="stages">
+        <span class="stage"><i></i>Commit <em class="t">passed</em></span>
+        <span class="stage"><i></i>Build <em class="t">passed</em></span>
+        <span class="stage"><i></i>Containerize <em class="t">passed</em></span>
+        <span class="stage"><i></i>Deploy <em class="t">passed</em></span>
+        <span class="stage"><i></i>Monitor <em class="t">passed</em></span>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main>
+<section id="skills">
+  <div class="wrap">
+    <h2>Technical skills</h2>
+    <dl class="skills">
+      <dt>Cloud (AWS)</dt>
+      <dd class="chips"><span>EC2</span><span>VPC</span><span>IAM</span><span>Lambda</span><span>DynamoDB</span><span>ECS</span><span>ECR</span><span>API Gateway</span><span>RDS</span><span>SQS</span><span>CloudWatch</span><span>Auto Scaling</span><span>Amplify</span><span>Route 53</span></dd>
+      <dt>DevOps &amp; CI/CD</dt>
+      <dd class="chips"><span>Jenkins</span><span>GitHub Actions</span><span>CodePipeline</span><span>CodeBuild</span><span>GitHub Webhooks</span><span>Git</span><span>GitHub</span></dd>
+      <dt>Infrastructure as code</dt>
+      <dd class="chips"><span>Terraform</span></dd>
+      <dt>Containers</dt>
+      <dd class="chips"><span>Docker</span><span>Kubernetes</span><span>Amazon ECS</span><span>Amazon ECR</span></dd>
+      <dt>Monitoring &amp; security</dt>
+      <dd class="chips"><span>Datadog</span><span>CloudWatch</span><span>IAM policies</span><span>GitHub Secrets</span></dd>
+    </dl>
+  </div>
+</section>
+
+<section id="projects">
+  <div class="wrap">
+    <h2>Projects</h2>
+
+    <article class="row">
+      <div class="when">Sep 2026 – Oct 2026</div>
+      <div>
+        <h3>Automated CI/CD pipeline for a real-time chat application</h3>
+        <ul>
+          <li>Built a Jenkins pipeline that builds, containerizes and deploys the chat app to AWS EC2 on every commit.</li>
+          <li>Used GitHub Webhooks to trigger jobs instantly on push, removing manual deployment steps and shortening release cycles.</li>
+          <li>Containerized the app with Docker and automated image build and deployment, so environments stay consistent from build to production.</li>
+        </ul>
+        <div class="tags"><span>Jenkins</span><span>Docker</span><span>AWS EC2</span><span>GitHub Webhooks</span></div>
+      </div>
+    </article>
+
+    <article class="row">
+      <div class="when">Jul 2026 – Aug 2026</div>
+      <div>
+        <h3>AWS CloudWatch dashboard for EC2 monitoring</h3>
+        <ul>
+          <li>Built a custom dashboard that tracks EC2 CPU utilization, network traffic and disk I/O in real time.</li>
+          <li>Applied monitoring and alerting practices to give early visibility into infrastructure performance.</li>
+        </ul>
+        <div class="tags"><span>CloudWatch</span><span>EC2</span></div>
+      </div>
+    </article>
+
+    <article class="row">
+      <div class="when">May 2026 – Jun 2026</div>
+      <div>
+        <h3>AWS S3 provisioning with Terraform and GitHub Actions</h3>
+        <ul>
+          <li>Automated S3 bucket provisioning with Terraform, running init, plan and apply in a GitHub Actions workflow on every push.</li>
+          <li>Kept AWS credentials in GitHub Secrets, following infrastructure-as-code and least-privilege practices.</li>
+        </ul>
+        <div class="tags"><span>Terraform</span><span>GitHub Actions</span><span>AWS S3</span><span>GitHub Secrets</span></div>
+      </div>
+    </article>
+
+    <article class="row">
+      <div class="when">Apr 2026 – May 2026</div>
+      <div>
+        <h3>CI/CD pipeline for a Node.js application on AWS ECS</h3>
+        <ul>
+          <li>Containerized a Node.js app with Docker and deployed it on AWS ECS for scalable, production-style hosting.</li>
+          <li>Built a CodePipeline and CodeBuild pipeline that automates build, test and deploy stages.</li>
+          <li>Stored images in Amazon ECR and configured networking, security and monitoring for reliable delivery.</li>
+        </ul>
+        <div class="tags"><span>AWS ECS</span><span>ECR</span><span>CodePipeline</span><span>CodeBuild</span><span>Docker</span></div>
+      </div>
+    </article>
+
+    <article class="row">
+      <div class="when">Jan 2026 – Apr 2026</div>
+      <div>
+        <h3>AI-based smart helmet system with eye tracking</h3>
+        <ul>
+          <li>Integrated a camera-based sensor module into a helmet to detect prolonged eye closure or driver distraction in real time.</li>
+          <li>Triggers audio alerts and emergency SMS notifications to improve rider safety.</li>
+        </ul>
+        <div class="tags"><span>Embedded systems</span><span>IoT</span></div>
+      </div>
+    </article>
+  </div>
+</section>
+
+<section id="experience">
+  <div class="wrap">
+    <h2>Experience &amp; training</h2>
+
+    <article class="row">
+      <div class="when">Aug 2026 – Nov 2026</div>
+      <div>
+        <h3>Cloud Computing and DevOps Intern</h3>
+        <div class="org">Gateway Software Solutions</div>
+        <ul><li>Gained hands-on experience with AWS, Docker, Jenkins CI/CD, GitHub, Kubernetes and Terraform through application deployment, infrastructure automation and real-time projects.</li></ul>
+      </div>
+    </article>
+
+    <article class="row">
+      <div class="when">Jan 2026 – Apr 2026</div>
+      <div>
+        <h3>Bajaj Engineering and Skills Training (BEST) Programme</h3>
+        <ul><li>Completed a 4-month residential programme (70% practical, 30% theory) covering functional testing, electronics system reliability and product compliance, with hands-on exposure to embedded systems and IoT on industrial-grade equipment.</li></ul>
+      </div>
+    </article>
+  </div>
+</section>
+
+<section id="education">
+  <div class="wrap two">
+    <div>
+      <h2>Education</h2>
+      <p><b>B.E., Electronics and Communication Engineering</b><br>Sree Sakthi Engineering College (Anna University), 2026<br><small>Aggregate: 75.2%</small></p>
+      <p><b>Higher Secondary (Class XII)</b><br>Tamil Nadu State Board, 2022<br><small>69.5%</small></p>
+      <p><b>Secondary (Class X)</b><br>Tamil Nadu State Board, 2020<br><small>69.2%</small></p>
+    </div>
+    <div>
+      <h2>Awards &amp; languages</h2>
+      <p>Awarded for participation in the national-level workshop on Next-Generation Drone Technologies for Defense and Security Applications (NG-DTDSA), Nehru Institute of Technology, Coimbatore.</p>
+      <p><b>Languages:</b> English (fluent), Tamil (fluent)</p>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer id="contact">
+  <div class="wrap">
+    <h2>Let's talk</h2>
+    <p>I am looking for a cloud or DevOps role where I can support deployment, automation and monitoring. Chennai, India.</p>
+    <div class="contact">
+      <a href="mailto:thirumalaiselladurai@gmail.com">thirumalaiselladurai@gmail.com</a>
+      <a href="tel:+918903862587">+91 89038 62587</a>
+      <a href="https://linkedin.com/in/thirumalai-selladurai-171073426" target="_blank" rel="noopener">LinkedIn</a>
+    </div>
+    <p class="copy">&copy; 2026 Thirumalai Selladurai</p>
+  </div>
+</footer>
+
+<script>
+// One page-load moment: pipeline stages turn green one after another.
+(function(){
+  var stages=document.querySelectorAll('#stages .stage');
+  var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  stages.forEach(function(s,i){
+    if(reduce){s.classList.add('ok');return;}
+    setTimeout(function(){s.classList.add('ok');},500+i*450);
+  });
+})();
+</script>
+</body>
+</html>
